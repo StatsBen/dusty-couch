@@ -1,3 +1,6 @@
+#Secret Keys
+/src/authentication/keys.js
+
 # Logs
 logs
 *.log
