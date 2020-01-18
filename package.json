@@ -4,6 +4,11 @@
   "description": "A fake listings site for my couch that friends can crash on",
   "main": "index.js",
   "scripts": {
+    "build": "parcel build src/index.html",
+    "deploy": "npm version patch && git push && parcel build src/index.html && firebase deploy",
+    "dev": "parcel src/index.html",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
