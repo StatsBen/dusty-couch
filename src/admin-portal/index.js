@@ -1,9 +1,18 @@
 import React from "react";
+import { signInWithGoogle, signOut } from "../authentication";
 
 class AdminView extends React.Component {
   constructor(props) {
     super(props);
   }
+
+  login = () => {
+    signInWithGoogle();
+  };
+
+  logout = () => {
+    signOut();
+  };
 
   render() {
     return (
