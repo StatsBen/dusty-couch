@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthButton } from "../utils/reusable-components";
+import NavBar from "../nav-bar/NavBar";
 import { auth, signInWithGoogle, signOut } from "../authentication";
 
 class AdminView extends React.Component {
@@ -26,16 +26,17 @@ class AdminView extends React.Component {
 
   render() {
     const { user } = this.state;
+    const navBarProps = {
+      user,
+      login: this.login,
+      logout: this.logout
+    };
 
     return (
       <div>
         <h4>Welcome to the admin portal for the dusty couch</h4>
 
-        {user ? (
-          <AuthButton onClick={this.logout}>Log Out</AuthButton>
-        ) : (
-          <AuthButton onClick={this.login}>Log In</AuthButton>
-        )}
+        <NavBar props={navBarProps} />
       </div>
     );
   }
