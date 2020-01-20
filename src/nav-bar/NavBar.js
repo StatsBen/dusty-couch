@@ -20,6 +20,7 @@ const NavBar = props => {
   return (
     <NavBarContainer>
       <SiteTitle>The Dusty Couch</SiteTitle>
+      {user && <div>Welcome, {user.displayName}</div>}
       {user ? (
         <AuthButton onClick={logout}>Log Out</AuthButton>
       ) : (

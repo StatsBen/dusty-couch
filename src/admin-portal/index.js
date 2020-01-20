@@ -27,7 +27,7 @@ class AdminView extends React.Component {
   render() {
     const { user } = this.state;
     const navBarProps = {
-      user,
+      user: user,
       login: this.login,
       logout: this.logout
     };
@@ -36,7 +36,7 @@ class AdminView extends React.Component {
       <div>
         <h4>Welcome to the admin portal for the dusty couch</h4>
 
-        <NavBar props={navBarProps} />
+        <NavBar {...navBarProps} />
       </div>
     );
   }
