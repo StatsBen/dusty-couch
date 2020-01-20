@@ -6,11 +6,13 @@ import { apiKey } from "./keys";
 
 let config = {
   apiKey: apiKey,
-  authDomain: "adventures-41a04.firebaseapp.com",
-  databaseURL: "https://adventures-41a04.firebaseio.com",
-  projectId: "adventures-41a04",
-  storageBucket: "adventures-41a04.appspot.com",
-  messagingSenderId: "220039229793"
+  authDomain: "dusty-couch.firebaseapp.com",
+  databaseURL: "https://dusty-couch.firebaseio.com",
+  projectId: "dusty-couch",
+  storageBucket: "dusty-couch.appspot.com",
+  messagingSenderId: "725034882370",
+  appId: "1:725034882370:web:c16f190b90ee65d40864db",
+  measurementId: "G-0QN2QMKBYL"
 };
 
 firebase.initializeApp(config);
