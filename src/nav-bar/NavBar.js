@@ -1,5 +1,5 @@
 import React from "react";
-import { AuthButton } from "../utils/reusable-components";
+import { BaseButton } from "../utils/reusable-components";
 import styled from "styled-components";
 
 const NavBarContainer = styled.div`
@@ -12,7 +12,17 @@ const NavBarContainer = styled.div`
 `;
 
 const SiteTitle = styled.div`
-  font-size: 24px;
+  float: left;
+`;
+
+const UserInfo = styled.div`
+  float: right;
+`;
+
+export const AuthButton = styled(BaseButton)`
+  float: right;
+  background: red;
+  color: yellow;
 `;
 
 const NavBar = props => {
@@ -20,13 +30,13 @@ const NavBar = props => {
   return (
     <NavBarContainer>
       <SiteTitle>The Dusty Couch</SiteTitle>
-      {user && <div>Welcome, {user.displayName}</div>}
+
       {user ? (
         <AuthButton onClick={logout}>Log Out</AuthButton>
       ) : (
         <AuthButton onClick={login}>Log In</AuthButton>
       )}
-      Im the nav bar, asshole!
+      {user && <UserInfo>Welcome, {user.displayName}</UserInfo>}
     </NavBarContainer>
   );
 };
