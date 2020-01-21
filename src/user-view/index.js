@@ -34,9 +34,8 @@ class UserView extends React.Component {
 
     return (
       <div>
-        <h4>Welcome to the main page for the Dusty Couch</h4>
-
         <NavBar {...navBarProps} />
+        <h4>Welcome to the main page for the Dusty Couch</h4>
       </div>
     );
   }
