@@ -1,4 +1,22 @@
 import React, { useState } from "react";
+import styled from "styled-components";
+import { BaseInput, BaseLabel } from "../utils/reusable-components";
+
+const BookingLabel = styled(BaseLabel)`
+  height: 60px;
+  margin: 15px;
+  background: red;
+`;
+
+const BookingTextInput = styled(BaseInput)`
+  color: mint;
+`;
+
+const BookingLongTextInput = styled.textarea`
+  padding: 5px;
+  border-radius: 5px;
+  background: #dddddd;
+`;
 
 const BookingForm = () => {
   const [arrivalDate, updateArrivalDate] = useState("");
@@ -18,38 +36,39 @@ const BookingForm = () => {
     <div>
       <h1>This will be a form</h1>
       <form>
-        <label>
+        <BookingLabel>
           Arrival Date:
-          <input
+          <BookingTextInput
             type="text"
             value={arrivalDate}
             onChange={e => updateArrivalDate(e.target.value)}
           />
-        </label>
-        <label>
+        </BookingLabel>
+        <BookingLabel>
           Departure Date:
-          <input
+          <BookingTextInput
             type="text"
             value={departureDate}
             onChange={e => updateDepartureDate(e.target.value)}
           />
-        </label>
-        <label>
+        </BookingLabel>
+        <BookingLabel>
           Requested Bed:
-          <input
+          <BookingTextInput
             type="text"
             value={requestedBed}
             onChange={e => updateRequestedBed(e.target.value)}
           />
-        </label>
-        <label>
+        </BookingLabel>
+        <BookingLabel>
           Reasoning:
-          <input
-            type="textbox"
+          <BookingLongTextInput
+            rows="4"
+            cols="70"
             value={reasoning}
             onChange={e => updateReasoning(e.target.value)}
           />
-        </label>
+        </BookingLabel>
         <input type="submit" value="Submit" onClick={handleSubmit} />
       </form>
     </div>

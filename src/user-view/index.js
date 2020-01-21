@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "../nav-bar/NavBar";
+import BookingForm from "../booking-form/BookingForm";
 import { auth, signInWithGoogle, signOut } from "../authentication";
 
 class UserView extends React.Component {
@@ -36,6 +37,7 @@ class UserView extends React.Component {
       <div>
         <NavBar {...navBarProps} />
         <h4>Welcome to the main page for the Dusty Couch</h4>
+        <BookingForm />
       </div>
     );
   }
