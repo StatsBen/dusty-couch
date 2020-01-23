@@ -27,14 +27,29 @@ export const BookingContainer = styled.div`
 `;
 
 export const BookingHeader = styled.h1`
+  display: block;
+  position: relative;
+  float: left;
+  clear: both;
+  padding: 20px;
   color: ${colours.headline};
+`;
+
+export const BookingSnarkyComment = styled.p`
+  display: block;
+  position: relative;
+  float: left;
+  clear: both;
+  padding: 20px;
+  color: ${colours.paragraph};
 `;
 
 export const BookingLabel = styled(BaseLabel)`
   display: block;
   position: relative;
   float: left;
-  margin: 5px;
+  clear: both;
+  margin: 10px;
   font-weight: 700;
   height: auto;
   color: ${colours.paragraph};
