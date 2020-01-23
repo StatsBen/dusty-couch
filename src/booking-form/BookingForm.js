@@ -8,6 +8,7 @@ import {
   BookingTextInput,
   BookingLongTextInput,
   BookingSnarkyComment,
+  CloseButton,
   SubmitButton
 } from "./BookingFormSubComponents";
 
@@ -33,6 +34,7 @@ const BookingForm = props => {
   return (
     <BookingBackdrop>
       <BookingContainer>
+        <CloseButton onClick={props.close}>X</CloseButton>
         <BookingHeader>
           Please submit the following form to request your stay
         </BookingHeader>

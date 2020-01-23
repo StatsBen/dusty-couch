@@ -80,12 +80,33 @@ export const SubmitButton = styled.input`
   background: ${colours.button};
   border: none;
   border-radius: 5px;
+  box-shadow: 3px 3px 5px #888888;
   &:hover {
-    border: thin solid white;
     cursor: pointer;
-    box-shadow: 1px 1px 3px #666666;
+    box-shadow: 3px 3px 8px #444444;
+  }
+  &:hover div {
+    cursor: pointer;
+    box-shadow: 3px 3px 8px #444444;
   }
   &:focus {
     border: none;
+  }
+`;
+
+export const CloseButton = styled.div`
+  display: block;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  padding: 20px;
+  font-size: 1.5em;
+  color: ${colours.buttonText};
+  text-transform: uppercase;
+  border-radius: 5px;
+  font-weight: 900;
+  user-select: none;
+  &:hover {
+    cursor: pointer;
   }
 `;
