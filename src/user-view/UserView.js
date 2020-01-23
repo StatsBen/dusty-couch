@@ -2,12 +2,13 @@ import React from "react";
 import Modal from "../Modal";
 import NavBar from "../nav-bar/NavBar";
 import BookingForm from "../booking-form/BookingForm";
+import { BaseButton } from "../utils/reusable-components";
 import { auth, signInWithGoogle, signOut } from "../authentication";
 
 class UserView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { user: null, showBookingForm: true };
+    this.state = { user: null, showBookingForm: false };
   }
 
   unsubscribeFromAuth = null;
@@ -50,9 +51,21 @@ class UserView extends React.Component {
       <div>
         <NavBar {...navBarProps} />
         <h1>Welcome to the main page for the Dusty Couch</h1>
+
+        <BaseButton
+          onClick={() => {
+            this.setState({ showBookingForm: true });
+          }}
+        >
+          Book Now!
+        </BaseButton>
         {showBookingForm && (
           <Modal>
-            <BookingForm user={user} submit={this.submitBookingForm} />
+            <BookingForm
+              user={user}
+              submit={this.submitBookingForm}
+              close={this.hideBookingForm}
+            />
           </Modal>
         )}
       </div>
