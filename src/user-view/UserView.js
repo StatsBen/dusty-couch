@@ -6,7 +6,7 @@ import { auth, signInWithGoogle, signOut } from "../authentication";
 class UserView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentEntry: null, entries: null, user: null };
+    this.state = { user: null, showBookingForm: false };
   }
 
   unsubscribeFromAuth = null;
@@ -25,8 +25,16 @@ class UserView extends React.Component {
     signOut();
   };
 
+  showBookingForm = () => {
+    this.setState({ showBookingForm: true });
+  };
+
+  hideBookingForm = () => {
+    this.setState({ showBookingForm: false });
+  };
+
   render() {
-    const { user } = this.state;
+    const { user, showBookingForm } = this.state;
     const navBarProps = {
       user: user,
       login: this.login,
@@ -36,8 +44,8 @@ class UserView extends React.Component {
     return (
       <div>
         <NavBar {...navBarProps} />
-        <h4>Welcome to the main page for the Dusty Couch</h4>
-        <BookingForm user={user} />
+        <h1>Welcome to the main page for the Dusty Couch</h1>
+        {showBookingForm && <BookingForm user={user} />}
       </div>
     );
   }

@@ -9,14 +9,14 @@ require("./styles/globals.css");
 // import Favicon from "react-favicon";
 
 const LoadableMainView = Loadable({
-  loader: () => import("./user-view/index.js"),
+  loader: () => import("./user-view/UserView.js"),
   loading() {
     return <p>Site is loading. Hold on, asshole... </p>;
   }
 });
 
 const LoadableAdminPortal = Loadable({
-  loader: () => import("./admin-portal/index.js"),
+  loader: () => import("./admin-portal/AdminView.js"),
   loading() {
     return <p>Admin&#146;ll be ready in a sec, Ben!</p>;
   }

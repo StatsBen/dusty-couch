@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { createPortal } from "react-dom";
 import styled from "styled-components";
 import { BaseInput, BaseLabel } from "../utils/reusable-components";
 
@@ -34,7 +35,12 @@ const BookingForm = props => {
     console.log(`submitting for user: ${displayName}, who's UID is: ${uid}`);
   };
 
-  return (
+  const modalRoot = document.getElementById("modal-y-boi");
+  const modalElement = document.createElement("div");
+
+  modalRoot.appendChild(modalElement);
+
+  return createPortal(
     <div>
       <h1>This will be a form</h1>
       <form>
@@ -73,7 +79,8 @@ const BookingForm = props => {
         </BookingLabel>
         <input type="submit" value="Submit" onClick={handleSubmit} />
       </form>
-    </div>
+    </div>,
+    modalElement
   );
 };
 
