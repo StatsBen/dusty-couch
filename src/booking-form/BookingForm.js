@@ -32,21 +32,35 @@ const BookingHeader = styled.h1`
 `;
 
 const BookingLabel = styled(BaseLabel)`
-  height: 60px;
-  margin: 15px;
-  background: red;
+  display: block;
+  position: relative;
+  float: left;
+  margin: 5px;
+  font-weight: 700;
+  height: auto;
+  color: ${colours.paragraph};
+  white-space: nowrap;
 `;
 
-const BookingTextInput = styled(BaseInput)``;
+const BookingTextInput = styled(BaseInput)`
+  background: white;
+`;
 
 const BookingLongTextInput = styled.textarea`
   padding: 5px;
   border-radius: 5px;
+  border: thin solid #888888;
+  background: white;
 `;
 
 const SubmitButton = styled.input`
+  display: block;
+  position: relative;
+  float: right;
+  clear: both;
+  margin: 15px;
   padding: 8px;
-  font-size: 0.8em;
+  font-size: 1.2em;
   font-weight: 700;
   color: ${colours.buttonText};
   background: ${colours.button};
@@ -55,6 +69,7 @@ const SubmitButton = styled.input`
   &:hover {
     border: thin solid white;
     cursor: pointer;
+    box-shadow: 1px 1px 3px #666666;
   }
   &:focus {
     border: none;
@@ -82,10 +97,12 @@ const BookingForm = props => {
   return (
     <BookingBackdrop>
       <BookingContainer>
-        <BookingHeader>This will be a form</BookingHeader>
+        <BookingHeader>
+          Please submit the following form to request your stay
+        </BookingHeader>
         <form>
           <BookingLabel>
-            Arrival Date:
+            {`Arrival Date: `}
             <BookingTextInput
               type="text"
               value={arrivalDate}
@@ -93,7 +110,7 @@ const BookingForm = props => {
             />
           </BookingLabel>
           <BookingLabel>
-            Departure Date:
+            {`Departure Date: `}
             <BookingTextInput
               type="text"
               value={departureDate}
@@ -101,7 +118,7 @@ const BookingForm = props => {
             />
           </BookingLabel>
           <BookingLabel>
-            Requested Bed:
+            {`Requested Bed: `}
             <BookingTextInput
               type="text"
               value={requestedBed}
@@ -109,7 +126,7 @@ const BookingForm = props => {
             />
           </BookingLabel>
           <BookingLabel>
-            Reasoning:
+            {`Reasoning: `}
             <BookingLongTextInput
               rows="4"
               cols="70"

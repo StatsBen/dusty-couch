@@ -7,7 +7,7 @@ import { auth, signInWithGoogle, signOut } from "../authentication";
 class UserView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { user: null, showBookingForm: true };
+    this.state = { user: null, showBookingForm: false };
   }
 
   unsubscribeFromAuth = null;

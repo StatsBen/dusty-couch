@@ -1,6 +1,6 @@
 export default {
   black: "#111111",
-  background: "#eeeeec",
+  background: "#fffffd",
   button: "#00ebc7",
   buttonText: "#00214d",
   headline: "#00214d",
