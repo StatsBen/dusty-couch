@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import DateInputComponent from "./DateInputComponent";
 import {
   BookingBackdrop,
   BookingContainer,
@@ -10,8 +11,7 @@ import {
 } from "./BookingFormSubComponents";
 
 const BookingForm = props => {
-  const [arrivalDate, updateArrivalDate] = useState("");
-  const [departureDate, updateDepartureDate] = useState("");
+  const [dates, updateDates] = useState("");
   const [requestedBed, updateRequestedBed] = useState("");
   const [reasoning, updateReasoning] = useState("");
 
@@ -19,8 +19,8 @@ const BookingForm = props => {
     event.preventDefault();
     const { uid, displayName } = props.user;
     const { submit } = props;
-    console.log(`submitting arrival date: ${arrivalDate}`);
-    console.log(`submitting departure date: ${departureDate}`);
+    // TODO Parse the dates (they're just default JS right now...)
+    console.log(`submitting dates: ${dates.startDate}-${dates.endDate}`);
     console.log(`submitting requested bed: ${requestedBed}`);
     console.log(`submitting reasoning: ${reasoning}`);
     console.log(`submitting for user: ${displayName}, who's UID is: ${uid}`);
@@ -35,21 +35,11 @@ const BookingForm = props => {
         </BookingHeader>
         <form>
           <BookingLabel>
-            {`Arrival Date: `}
-            <BookingTextInput
-              type="text"
-              value={arrivalDate}
-              onChange={e => updateArrivalDate(e.target.value)}
-            />
+            {`Dates: `}
+            <br />
+            <DateInputComponent updateDates={updateDates} />
           </BookingLabel>
-          <BookingLabel>
-            {`Departure Date: `}
-            <BookingTextInput
-              type="text"
-              value={departureDate}
-              onChange={e => updateDepartureDate(e.target.value)}
-            />
-          </BookingLabel>
+          <br />
           <BookingLabel>
             {`Requested Bed: `}
             <BookingTextInput
