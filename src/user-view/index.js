@@ -37,7 +37,7 @@ class UserView extends React.Component {
       <div>
         <NavBar {...navBarProps} />
         <h4>Welcome to the main page for the Dusty Couch</h4>
-        <BookingForm />
+        <BookingForm user={user} />
       </div>
     );
   }

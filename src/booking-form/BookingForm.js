@@ -18,7 +18,7 @@ const BookingLongTextInput = styled.textarea`
   background: #dddddd;
 `;
 
-const BookingForm = () => {
+const BookingForm = props => {
   const [arrivalDate, updateArrivalDate] = useState("");
   const [departureDate, updateDepartureDate] = useState("");
   const [requestedBed, updateRequestedBed] = useState("");
@@ -26,10 +26,12 @@ const BookingForm = () => {
 
   const handleSubmit = event => {
     event.preventDefault();
+    const { uid, displayName } = props.user;
     console.log(`submitting arrival date: ${arrivalDate}`);
     console.log(`submitting departure date: ${departureDate}`);
     console.log(`submitting requested bed: ${requestedBed}`);
     console.log(`submitting reasoning: ${reasoning}`);
+    console.log(`submitting for user: ${displayName}, who's UID is: ${uid}`);
   };
 
   return (
