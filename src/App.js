@@ -4,6 +4,8 @@ import { Router } from "@reach/router";
 import Loadable from "react-loadable";
 import styled from "styled-components";
 import fonts from "./styles/fonts";
+import colours from "./styles/colours";
+require("./styles/globals.css");
 // import Favicon from "react-favicon";
 
 const LoadableMainView = Loadable({
@@ -22,20 +24,23 @@ const LoadableAdminPortal = Loadable({
 
 const GlobalStyles = styled.div`
   font-family: ${fonts.primary}, sans-serif;
+  background: ${colours.background};
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
 `;
 
 class App extends React.Component {
   render() {
     return (
-      <div id="main">
-        <GlobalStyles>
-          <h3>The Dusty Couch</h3>
-          <Router>
-            <LoadableMainView path="/" />
-            <LoadableAdminPortal path="/admin" />
-          </Router>
-        </GlobalStyles>
-      </div>
+      <GlobalStyles id="main">
+        <h3>The Dusty Couch</h3>
+        <Router>
+          <LoadableMainView path="/" />
+          <LoadableAdminPortal path="/admin" />
+        </Router>
+      </GlobalStyles>
     );
   }
 }
