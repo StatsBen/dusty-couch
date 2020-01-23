@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
 import Loadable from "react-loadable";
+import styled from "styled-components";
+import fonts from "./styles/fonts";
 // import Favicon from "react-favicon";
 
 const LoadableMainView = Loadable({
@@ -18,15 +20,21 @@ const LoadableAdminPortal = Loadable({
   }
 });
 
+const GlobalStyles = styled.div`
+  font-family: ${fonts.primary}, sans-serif;
+`;
+
 class App extends React.Component {
   render() {
     return (
       <div id="main">
-        <h3>The Dusty Couch</h3>
-        <Router>
-          <LoadableMainView path="/" />
-          <LoadableAdminPortal path="/admin" />
-        </Router>
+        <GlobalStyles>
+          <h3>The Dusty Couch</h3>
+          <Router>
+            <LoadableMainView path="/" />
+            <LoadableAdminPortal path="/admin" />
+          </Router>
+        </GlobalStyles>
       </div>
     );
   }
