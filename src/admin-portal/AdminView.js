@@ -1,11 +1,12 @@
 import React from "react";
 import NavBar from "../nav-bar/NavBar";
-import { auth, signInWithGoogle, signOut } from "../authentication";
+import BookingsPane from "./BookingsPane";
+import { auth, firestore, signInWithGoogle, signOut } from "../authentication";
 
 class AdminView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { currentEntry: null, entries: null, user: null };
+    this.state = { currentBooking: null, bookings: null, user: null };
   }
 
   unsubscribeFromAuth = null;
@@ -14,6 +15,16 @@ class AdminView extends React.Component {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(user =>
       this.setState({ user })
     );
+
+    this.unsubscribeFromFirestore = await firestore
+      .collection("bookings")
+      .orderBy("date", "desc")
+      .onSnapshot(snapshot => {
+        const bookings = snapshot.docs.map(doc => {
+          doc.data();
+        });
+        this.setState({ bookings });
+      });
   };
 
   login = () => {
@@ -34,9 +45,9 @@ class AdminView extends React.Component {
 
     return (
       <div>
-        <h4>Welcome to the admin portal for the dusty couch</h4>
-
         <NavBar {...navBarProps} />
+        <h1>Admin</h1>
+        <BookingsPane bookings={this.state.bookings} />
       </div>
     );
   }
