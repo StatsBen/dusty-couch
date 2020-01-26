@@ -3,6 +3,7 @@ import Modal from "../Modal";
 import NavBar from "../nav-bar/NavBar";
 import BookingForm from "../booking-form/BookingForm";
 import Footer from "../footer/Footer";
+import ArtFrame from "./ArtFrame";
 import CouchASCIIart from "../assets/couchASCIIart";
 import { PromoSection, PromoHalf } from "./PromoComponents";
 import { BaseButton } from "../utils/reusable-components";
@@ -70,7 +71,9 @@ class UserView extends React.Component {
             <BaseButton onClick={this.showBookingForm}>Book Now!</BaseButton>
           </PromoHalf>
           <PromoHalf>
-            <CouchASCIIart />
+            <ArtFrame caption={`ASCII Couch by Joan G. Stark`}>
+              <CouchASCIIart />
+            </ArtFrame>
           </PromoHalf>
         </PromoSection>
         <Footer />
