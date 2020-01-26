@@ -47,7 +47,12 @@ const NavBar = props => {
       ) : (
         <AuthButton onClick={login}>Log In</AuthButton>
       )}
-      {user && <UserInfo>{`Welcome back, "${user.displayName}"`}</UserInfo>}
+
+      {user ? (
+        <UserInfo>{`Welcome back, "${user.displayName}"`}</UserInfo>
+      ) : (
+        <UserInfo>{`Have a Reservation? Log In To View/Edit`}</UserInfo>
+      )}
     </NavBarContainer>
   );
 };
