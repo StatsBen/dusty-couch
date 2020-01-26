@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "../nav-bar/NavBar";
 import BookingsPane from "./BookingsPane";
+import Footer from "../footer/Footer";
 import { auth, firestore, signInWithGoogle, signOut } from "../authentication";
 
 class AdminView extends React.Component {
@@ -48,6 +49,7 @@ class AdminView extends React.Component {
         <NavBar {...navBarProps} />
         <h1>Admin</h1>
         <BookingsPane bookings={this.state.bookings} />
+        <Footer />
       </div>
     );
   }

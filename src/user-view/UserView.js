@@ -2,6 +2,7 @@ import React from "react";
 import Modal from "../Modal";
 import NavBar from "../nav-bar/NavBar";
 import BookingForm from "../booking-form/BookingForm";
+import Footer from "../footer/Footer";
 import { BaseButton } from "../utils/reusable-components";
 import { auth, signInWithGoogle, signOut } from "../authentication";
 
@@ -68,6 +69,7 @@ class UserView extends React.Component {
             />
           </Modal>
         )}
+        <Footer />
       </div>
     );
   }
