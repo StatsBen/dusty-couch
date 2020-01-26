@@ -31,8 +31,12 @@ class UserView extends React.Component {
     signOut();
   };
 
-  showBookingForm = () => {
-    this.setState({ showBookingForm: true });
+  showBookingForm = async () => {
+    if (this.state.user) {
+      this.setState({ showBookingForm: true });
+    } else {
+      await this.login();
+    }
   };
 
   hideBookingForm = () => {
