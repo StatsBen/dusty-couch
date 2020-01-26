@@ -3,6 +3,8 @@ import Modal from "../Modal";
 import NavBar from "../nav-bar/NavBar";
 import BookingForm from "../booking-form/BookingForm";
 import Footer from "../footer/Footer";
+import CouchASCIIart from "../assets/couchASCIIart";
+import { PromoSection, PromoHalf } from "./PromoComponents";
 import { BaseButton } from "../utils/reusable-components";
 import { auth, signInWithGoogle, signOut } from "../authentication";
 
@@ -51,15 +53,6 @@ class UserView extends React.Component {
     return (
       <div>
         <NavBar {...navBarProps} />
-        <h1>Welcome to the main page for the Dusty Couch</h1>
-
-        <BaseButton
-          onClick={() => {
-            this.setState({ showBookingForm: true });
-          }}
-        >
-          Book Now!
-        </BaseButton>
         {showBookingForm && (
           <Modal>
             <BookingForm
@@ -69,6 +62,17 @@ class UserView extends React.Component {
             />
           </Modal>
         )}
+
+        <PromoSection>
+          <PromoHalf>
+            <h1>Welcome to the main page for the Dusty Couch</h1>
+            <br />
+            <BaseButton onClick={this.showBookingForm}>Book Now!</BaseButton>
+          </PromoHalf>
+          <PromoHalf>
+            <CouchASCIIart />
+          </PromoHalf>
+        </PromoSection>
         <Footer />
       </div>
     );
