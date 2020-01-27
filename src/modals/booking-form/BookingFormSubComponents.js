@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { BaseInput, BaseLabel } from "../utils/reusable-components";
-import colours from "../styles/colours";
+import { BaseInput, BaseLabel } from "../../utils/reusable-components";
+import colours from "../../styles/colours";
 
 export const BookingSnarkyComment = styled.p`
   display: block;

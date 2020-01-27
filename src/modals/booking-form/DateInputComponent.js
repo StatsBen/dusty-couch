@@ -3,8 +3,8 @@ import styled from "styled-components";
 import "react-dates/initialize";
 import { DateRangePicker } from "react-dates";
 import "react-dates/lib/css/_datepicker.css";
-import fonts from "../styles/fonts";
-import colours from "../styles/colours";
+import fonts from "../../styles/fonts";
+import colours from "../../styles/colours";
 
 const DateInputContainer = styled.div`
   font-family: ${fonts.primary}, sans-serif;

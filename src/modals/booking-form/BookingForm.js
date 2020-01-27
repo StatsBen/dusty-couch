@@ -13,7 +13,7 @@ import {
   ModalBackdrop,
   ModalContainer,
   ModalHeader
-} from "../modals/reusable-modal-components";
+} from "../reusable-modal-components";
 
 const BookingForm = props => {
   const [dates, updateDates] = useState("");
