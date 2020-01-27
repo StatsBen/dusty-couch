@@ -28,7 +28,18 @@ const BookingForm = props => {
     console.log(`submitting reasoning: ${reasoning}`);
     console.log(`submitting for user: ${displayName}, who's UID is: ${uid}`);
     console.log(`submitting email: ${email}`);
-    submit(); // TODO, actually send up the JSON of the booking to the parent for submission!
+
+    let formData = {
+      email,
+      displayName,
+      uid,
+      startDate: dates.startDate.format("dddd, MMMM Do YYYY"),
+      endDate: dates.endDate.format("dddd, MMMM Do YYYY"),
+      requestedBed,
+      reasoning
+    };
+
+    submit(formData); // TODO, actually send up the JSON of the booking to the parent for submission!
   };
 
   return (

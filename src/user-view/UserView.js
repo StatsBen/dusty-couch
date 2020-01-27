@@ -7,7 +7,7 @@ import ArtFrame from "./ArtFrame";
 import CouchASCIIart from "../assets/couchASCIIart";
 import { PromoSection, PromoHalf } from "./PromoComponents";
 import { BaseButton } from "../utils/reusable-components";
-import { auth, signInWithGoogle, signOut } from "../authentication";
+import { auth, firestore, signInWithGoogle, signOut } from "../authentication";
 
 class UserView extends React.Component {
   constructor(props) {
@@ -43,8 +43,13 @@ class UserView extends React.Component {
     this.setState({ showBookingForm: false });
   };
 
-  submitBookingForm = () => {
-    // TODO
+  submitBookingForm = async formData => {
+    await firestore
+      .collection("bookings")
+      .doc("newID")
+      .set(formData);
+
+    this.hideBookingForm();
   };
 
   render() {
