@@ -1,39 +1,6 @@
 import styled from "styled-components";
 import { BaseInput, BaseLabel } from "../utils/reusable-components";
 import colours from "../styles/colours";
-import fonts from "../styles/fonts";
-
-export const BookingBackdrop = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 999;
-`;
-
-export const BookingContainer = styled.div`
-  position: absolute;
-  width: calc(90% - 40px);
-  left: 5%;
-  top: 100px;
-  padding: 20px;
-  font-family: ${fonts.primary}, sans-serif;
-  color: ${colours.paragraph};
-  background: ${colours.background};
-  z-index: 1000;
-  border-radius: 10px;
-`;
-
-export const BookingHeader = styled.h1`
-  display: block;
-  position: relative;
-  float: left;
-  clear: both;
-  padding: 20px;
-  color: ${colours.headline};
-`;
 
 export const BookingSnarkyComment = styled.p`
   display: block;
@@ -91,22 +58,5 @@ export const SubmitButton = styled.input`
   }
   &:focus {
     border: none;
-  }
-`;
-
-export const CloseButton = styled.div`
-  display: block;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  padding: 20px;
-  font-size: 1.5em;
-  color: ${colours.buttonText};
-  text-transform: uppercase;
-  border-radius: 5px;
-  font-weight: 900;
-  user-select: none;
-  &:hover {
-    cursor: pointer;
   }
 `;

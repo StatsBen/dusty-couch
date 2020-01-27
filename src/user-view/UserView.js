@@ -7,12 +7,17 @@ import ArtFrame from "./ArtFrame";
 import CouchASCIIart from "../assets/couchASCIIart";
 import { PromoSection, PromoHalf } from "./PromoComponents";
 import { BaseButton } from "../utils/reusable-components";
+import SuccessMessage from "../modals/SuccessMessage";
 import { auth, firestore, signInWithGoogle, signOut } from "../authentication";
 
 class UserView extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { user: null, showBookingForm: false };
+    this.state = {
+      user: null,
+      showBookingForm: false,
+      showSuccessMessage: false
+    };
   }
 
   unsubscribeFromAuth = null;
@@ -50,10 +55,22 @@ class UserView extends React.Component {
       .set(formData);
 
     this.hideBookingForm();
+    this.showSuccessMessage();
+    setTimeout(() => {
+      this.hideSuccessMessage();
+    }, 3000);
+  };
+
+  showSuccessMessage = () => {
+    this.setState({ showSuccessMessage: true });
+  };
+
+  hideSuccessMessage = () => {
+    this.setState({ showSuccessMessage: false });
   };
 
   render() {
-    const { user, showBookingForm } = this.state;
+    const { user, showBookingForm, showSuccessMessage } = this.state;
     const navBarProps = {
       user: user,
       login: this.login,
@@ -70,6 +87,12 @@ class UserView extends React.Component {
               submit={this.submitBookingForm}
               close={this.hideBookingForm}
             />
+          </Modal>
+        )}
+
+        {showSuccessMessage && (
+          <Modal>
+            <SuccessMessage close={this.hideSuccessMessage} />
           </Modal>
         )}
 

@@ -1,16 +1,19 @@
 import React, { useState } from "react";
 import DateInputComponent from "./DateInputComponent";
 import {
-  BookingBackdrop,
-  BookingContainer,
-  BookingHeader,
   BookingLabel,
   BookingTextInput,
   BookingLongTextInput,
   BookingSnarkyComment,
-  CloseButton,
   SubmitButton
 } from "./BookingFormSubComponents";
+
+import {
+  CloseButton,
+  ModalBackdrop,
+  ModalContainer,
+  ModalHeader
+} from "../modals/reusable-modal-components";
 
 const BookingForm = props => {
   const [dates, updateDates] = useState("");
@@ -43,12 +46,12 @@ const BookingForm = props => {
   };
 
   return (
-    <BookingBackdrop>
-      <BookingContainer>
+    <ModalBackdrop>
+      <ModalContainer>
         <CloseButton onClick={props.close}>X</CloseButton>
-        <BookingHeader>
+        <ModalHeader>
           Please submit the following form to request your stay
-        </BookingHeader>
+        </ModalHeader>
         {props.user && (
           <BookingSnarkyComment>
             Yes, I already know your name is{" "}
@@ -94,8 +97,8 @@ const BookingForm = props => {
           </BookingLabel>
           <SubmitButton type="submit" value="Submit" onClick={handleSubmit} />
         </form>
-      </BookingContainer>
-    </BookingBackdrop>
+      </ModalContainer>
+    </ModalBackdrop>
   );
 };
 
