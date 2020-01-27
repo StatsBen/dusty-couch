@@ -8,6 +8,7 @@ import CouchASCIIart from "../assets/couchASCIIart";
 import { PromoSection, PromoHalf } from "./PromoComponents";
 import { BaseButton } from "../utils/reusable-components";
 import SuccessMessage from "../modals/SuccessMessage";
+import ErrorMessage from "../modals/ErrorMessage";
 import { auth, firestore, signInWithGoogle, signOut } from "../authentication";
 
 class UserView extends React.Component {
@@ -69,8 +70,22 @@ class UserView extends React.Component {
     this.setState({ showSuccessMessage: false });
   };
 
+  showErrorMessage = () => {
+    this.setState({ showErrorMessage: true });
+  };
+
+  hideErrorMessage = () => {
+    this.setState({ showErrorMessage: false });
+  };
+
   render() {
-    const { user, showBookingForm, showSuccessMessage } = this.state;
+    const {
+      user,
+      showBookingForm,
+      showSuccessMessage,
+      showErrorMessage
+    } = this.state;
+
     const navBarProps = {
       user: user,
       login: this.login,
@@ -93,6 +108,12 @@ class UserView extends React.Component {
         {showSuccessMessage && (
           <Modal>
             <SuccessMessage close={this.hideSuccessMessage} />
+          </Modal>
+        )}
+
+        {showErrorMessage && (
+          <Modal>
+            <ErrorMessage close={this.hideErrorMessage} />
           </Modal>
         )}
 
