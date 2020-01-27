@@ -50,16 +50,28 @@ class UserView extends React.Component {
   };
 
   submitBookingForm = async formData => {
-    await firestore
-      .collection("bookings")
-      .doc("newID")
-      .set(formData);
+    try {
+      if (!formData)
+        throw new Error("Unable to parse the booking request form");
 
-    this.hideBookingForm();
-    this.showSuccessMessage();
-    setTimeout(() => {
-      this.hideSuccessMessage();
-    }, 3000);
+      await firestore
+        .collection("bookings")
+        .doc("newID")
+        .set(formData);
+
+      this.hideBookingForm();
+      this.showSuccessMessage();
+      setTimeout(() => {
+        this.hideSuccessMessage();
+      }, 3000);
+    } catch (e) {
+      console.error(e);
+      this.hideBookingForm();
+      this.showErrorModal();
+      setTimeout(() => {
+        this.hideErrorModal();
+      }, 3000);
+    }
   };
 
   showSuccessMessage = () => {

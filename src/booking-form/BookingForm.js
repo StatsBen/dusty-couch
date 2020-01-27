@@ -22,27 +22,34 @@ const BookingForm = props => {
   const [additionalGuests, updateAdditionalGuests] = useState("");
 
   const handleSubmit = event => {
-    event.preventDefault();
     const { submit } = props;
     const { uid, displayName, email } = props.user;
-    // TODO Parse the dates (they're just default JS right now...)
-    console.log(`submitting dates: ${dates.startDate}-${dates.endDate}`);
-    console.log(`submitting requested bed: ${requestedBed}`);
-    console.log(`submitting reasoning: ${reasoning}`);
-    console.log(`submitting for user: ${displayName}, who's UID is: ${uid}`);
-    console.log(`submitting email: ${email}`);
 
-    let formData = {
-      email,
-      displayName,
-      uid,
-      startDate: dates.startDate.format("dddd, MMMM Do YYYY"),
-      endDate: dates.endDate.format("dddd, MMMM Do YYYY"),
-      requestedBed,
-      reasoning
-    };
+    try {
+      event.preventDefault();
+      // TODO Parse the dates (they're just default JS right now...)
+      console.log(`submitting dates: ${dates.startDate}-${dates.endDate}`);
+      console.log(`submitting requested bed: ${requestedBed}`);
+      console.log(`submitting reasoning: ${reasoning}`);
+      console.log(`submitting for user: ${displayName}, who's UID is: ${uid}`);
+      console.log(`submitting email: ${email}`);
 
-    submit(formData); // TODO, actually send up the JSON of the booking to the parent for submission!
+      let formData = {
+        email,
+        displayName,
+        uid,
+        startDate: dates.startDate.format("dddd, MMMM Do YYYY"),
+        endDate: dates.endDate.format("dddd, MMMM Do YYYY"),
+        requestedBed,
+        reasoning
+      };
+
+      submit(formData);
+    } catch (e) {
+      console.error("Couldn't parse the booking request");
+      console.error(e);
+      submit(null);
+    }
   };
 
   return (
