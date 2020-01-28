@@ -27,12 +27,14 @@ const BookingForm = props => {
 
     try {
       event.preventDefault();
-      // TODO Parse the dates (they're just default JS right now...)
       console.log(`submitting dates: ${dates.startDate}-${dates.endDate}`);
       console.log(`submitting requested bed: ${requestedBed}`);
       console.log(`submitting reasoning: ${reasoning}`);
       console.log(`submitting for user: ${displayName}, who's UID is: ${uid}`);
       console.log(`submitting email: ${email}`);
+
+      if (!email || !dates)
+        throw new Error("Essential data is missing from your booking request");
 
       let formData = {
         email,
@@ -41,11 +43,15 @@ const BookingForm = props => {
         startDate: dates.startDate.format("dddd, MMMM Do YYYY"),
         endDate: dates.endDate.format("dddd, MMMM Do YYYY"),
         requestedBed,
-        reasoning
+        reasoning,
+        status: "DECISION_PENDING"
       };
 
       submit(formData);
     } catch (e) {
+      alert(
+        `Uh oh, looks like your request is missing some data. Please fix your request and then try again.`
+      );
       console.error("Couldn't parse the booking request");
       console.error(e);
       submit(null);

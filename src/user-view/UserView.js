@@ -56,10 +56,7 @@ class UserView extends React.Component {
       if (!formData)
         throw new Error("Unable to parse the booking request form");
 
-      await firestore
-        .collection("bookings")
-        .doc("newID")
-        .set(formData);
+      await firestore.collection("bookings").add(formData);
 
       this.hideBookingForm();
       this.showSuccessMessage();
