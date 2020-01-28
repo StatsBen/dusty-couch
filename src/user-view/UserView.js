@@ -9,6 +9,7 @@ import { PromoSection, PromoHalf } from "./PromoComponents";
 import { BaseButton } from "../utils/reusable-components";
 import SuccessMessage from "../modals/SuccessMessage";
 import ErrorMessage from "../modals/ErrorMessage";
+import MyBookings from "../modals/my-bookings/MyBookings";
 import { auth, firestore, signInWithGoogle, signOut } from "../authentication";
 
 class UserView extends React.Component {
@@ -17,6 +18,7 @@ class UserView extends React.Component {
     this.state = {
       user: null,
       showBookingForm: false,
+      showMyBookings: false,
       showSuccessMessage: false
     };
   }
@@ -90,10 +92,19 @@ class UserView extends React.Component {
     this.setState({ showErrorMessage: false });
   };
 
+  showMyBookings = () => {
+    this.setState({ showMyBookings: true });
+  };
+
+  hideMyBookings = () => {
+    this.setState({ showMyBookings: false });
+  };
+
   render() {
     const {
       user,
       showBookingForm,
+      showMyBookings,
       showSuccessMessage,
       showErrorMessage
     } = this.state;
@@ -101,7 +112,8 @@ class UserView extends React.Component {
     const navBarProps = {
       user: user,
       login: this.login,
-      logout: this.logout
+      logout: this.logout,
+      showMyBookings: this.showMyBookings
     };
 
     return (
@@ -114,6 +126,12 @@ class UserView extends React.Component {
               submit={this.submitBookingForm}
               close={this.hideBookingForm}
             />
+          </Modal>
+        )}
+
+        {showMyBookings && (
+          <Modal>
+            <MyBookings close={this.hideMyBookings} myBookings={null} />
           </Modal>
         )}
 

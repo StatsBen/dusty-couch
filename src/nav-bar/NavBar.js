@@ -37,7 +37,7 @@ export const AuthButton = styled(BaseButton)`
 `;
 
 const NavBar = props => {
-  const { user, login, logout } = props;
+  const { user, login, logout, showMyBookings } = props;
   return (
     <NavBarContainer>
       <SiteTitle>The Dusty Couch</SiteTitle>
@@ -47,6 +47,8 @@ const NavBar = props => {
       ) : (
         <AuthButton onClick={login}>Log In</AuthButton>
       )}
+
+      {user && <AuthButton onClick={showMyBookings}>View Bookings</AuthButton>}
 
       {user ? (
         <UserInfo>{`Welcome back, "${user.displayName}"`}</UserInfo>
