@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colours from "../styles/colours";
+const dustyCouchImg = require("../assets/sam-graphics/dusty-couch.jpg");
 
 const styleBarHeight = "3px";
 
@@ -43,6 +44,13 @@ const Separator = styled.div`
   width: 100%;
 `;
 
+const FittedImage = styled.img`
+  display: block;
+  position: relative;
+  float: none;
+  width: 100%;
+`;
+
 const PromoSection = props => {
   return (
     <PromoContainer>
@@ -56,4 +64,9 @@ const PromoSection = props => {
   );
 };
 
-export { PromoSection, PromoHalf };
+const SamGraphic = props => {
+  // const url = "../assets/sam-graphics/" + props.filename;
+  return <FittedImage src={dustyCouchImg} alt="Book Now!" />;
+};
+
+export { PromoSection, PromoHalf, SamGraphic };
