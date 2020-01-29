@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import colours from "../styles/colours";
-const dustyCouchImg = require("../assets/sam-graphics/dusty-couch.jpg");
+import samGraphics from "../assets/sam-graphics.js";
 
 const styleBarHeight = "3px";
 
@@ -65,8 +65,8 @@ const PromoSection = props => {
 };
 
 const SamGraphic = props => {
-  // const url = "../assets/sam-graphics/" + props.filename;
-  return <FittedImage src={dustyCouchImg} alt="Book Now!" />;
+  const image = samGraphics[props.which];
+  return <FittedImage src={image} alt="Book Now!" />;
 };
 
 export { PromoSection, PromoHalf, SamGraphic };
