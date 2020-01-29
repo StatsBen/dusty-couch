@@ -40,9 +40,11 @@ class UserView extends React.Component {
       .where("userID", "==", this.state.user.uid)
       .orderBy("timestamp", "desc")
       .onSnapshot(snapshot => {
-        const bookings = snapshot.docs.map(doc => {
-          doc.data();
+        let bookings = [];
+        snapshot.docs.map(doc => {
+          bookings.push(doc.data());
         });
+
         this.setState({ myBookings: bookings });
       });
   };
