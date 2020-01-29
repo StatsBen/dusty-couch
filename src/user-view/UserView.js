@@ -5,7 +5,7 @@ import BookingForm from "../modals/booking-form/BookingForm";
 import Footer from "../footer/Footer";
 import ArtFrame from "./ArtFrame";
 import CouchASCIIart from "../assets/couchASCIIart";
-import { PromoSection, PromoHalf } from "./PromoComponents";
+import { PromoSection, PromoHalf, SamGraphic } from "./PromoComponents";
 import { BaseButton } from "../utils/reusable-components";
 import SuccessMessage from "../modals/SuccessMessage";
 import ErrorMessage from "../modals/ErrorMessage";
@@ -17,6 +17,7 @@ class UserView extends React.Component {
     super(props);
     this.state = {
       user: null,
+      myBookings: null,
       showBookingForm: false,
       showMyBookings: false,
       showSuccessMessage: false
@@ -25,14 +26,29 @@ class UserView extends React.Component {
 
   unsubscribeFromAuth = null;
 
+  /* Authenticate, and if it works fetch the bookings */
   componentDidMount = async () => {
     this.unsubscribeFromAuth = auth.onAuthStateChanged(user =>
-      this.setState({ user })
+      this.setState({ user }, this.getMyBookings)
     );
   };
 
-  login = () => {
-    signInWithGoogle();
+  getMyBookings = async () => {
+    this.unsubscribeFromFirestore = await firestore
+      .collection("bookings")
+      .where("uid", "==", this.state.user.uid)
+      .orderBy("date", "desc")
+      .onSnapshot(snapshot => {
+        const bookings = snapshot.docs.map(doc => {
+          doc.data();
+        });
+        this.setState({ bookings });
+      });
+  };
+
+  login = async () => {
+    await signInWithGoogle();
+    this.getMyBookings();
   };
 
   logout = () => {
@@ -100,6 +116,7 @@ class UserView extends React.Component {
   render() {
     const {
       user,
+      myBookings,
       showBookingForm,
       showMyBookings,
       showSuccessMessage,
@@ -128,7 +145,7 @@ class UserView extends React.Component {
 
         {showMyBookings && (
           <Modal>
-            <MyBookings close={this.hideMyBookings} myBookings={null} />
+            <MyBookings close={this.hideMyBookings} myBookings={myBookings} />
           </Modal>
         )}
 
@@ -153,6 +170,17 @@ class UserView extends React.Component {
           <PromoHalf>
             <ArtFrame caption={`ASCII Couch by Joan G. Stark`}>
               <CouchASCIIart />
+            </ArtFrame>
+          </PromoHalf>
+        </PromoSection>
+
+        <PromoSection>
+          <PromoHalf>
+            <BaseButton onClick={this.showBookingForm}>Book Now!</BaseButton>
+          </PromoHalf>
+          <PromoHalf>
+            <ArtFrame caption="All Art by Sam Bowerman">
+              <SamGraphic filename={"dusty-couch.jpg"} />
             </ArtFrame>
           </PromoHalf>
         </PromoSection>
