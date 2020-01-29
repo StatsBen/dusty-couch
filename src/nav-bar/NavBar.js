@@ -36,8 +36,17 @@ export const AuthButton = styled(BaseButton)`
   margin: 3px 8px 3px 3px;
 `;
 
+const ButtonNotReady = styled(AuthButton)`
+  background: #777777;
+  user-select: none;
+  &:hover {
+    border: none;
+    cursor: default;
+  }
+`;
+
 const NavBar = props => {
-  const { user, login, logout, showMyBookings } = props;
+  const { user, login, logout, ready, showMyBookings } = props;
   return (
     <NavBarContainer>
       <SiteTitle>The Dusty Couch</SiteTitle>
@@ -48,7 +57,11 @@ const NavBar = props => {
         <AuthButton onClick={login}>Log In</AuthButton>
       )}
 
-      {user && <AuthButton onClick={showMyBookings}>View Bookings</AuthButton>}
+      {user && ready ? (
+        <AuthButton onClick={showMyBookings}>My Bookings</AuthButton>
+      ) : (
+        <ButtonNotReady>Loading...</ButtonNotReady>
+      )}
 
       {user ? (
         <UserInfo>{`Welcome back, "${user.displayName}"`}</UserInfo>

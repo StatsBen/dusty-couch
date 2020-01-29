@@ -39,7 +39,8 @@ const BookingForm = props => {
       let formData = {
         email,
         displayName,
-        uid,
+        userID: uid,
+        timestamp: dates.startDate.valueOf(),
         startDate: dates.startDate.format("dddd, MMMM Do YYYY"),
         endDate: dates.endDate.format("dddd, MMMM Do YYYY"),
         requestedBed,

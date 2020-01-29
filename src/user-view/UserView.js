@@ -34,15 +34,16 @@ class UserView extends React.Component {
   };
 
   getMyBookings = async () => {
-    this.unsubscribeFromFirestore = await firestore
-      .collection("bookings")
-      .where("uid", "==", this.state.user.uid)
-      .orderBy("date", "desc")
+    let bookingsRef = firestore.collection("bookings");
+
+    this.unsubscribeFromFirestore = bookingsRef
+      .where("userID", "==", this.state.user.uid)
+      .orderBy("timestamp", "desc")
       .onSnapshot(snapshot => {
         const bookings = snapshot.docs.map(doc => {
           doc.data();
         });
-        this.setState({ bookings });
+        this.setState({ myBookings: bookings });
       });
   };
 
@@ -127,12 +128,14 @@ class UserView extends React.Component {
       user: user,
       login: this.login,
       logout: this.logout,
+      ready: myBookings && true, // Just casting myBookings to a boolean
       showMyBookings: this.showMyBookings
     };
 
     return (
       <div>
         <NavBar {...navBarProps} />
+
         {showBookingForm && (
           <Modal>
             <BookingForm
@@ -180,7 +183,7 @@ class UserView extends React.Component {
           </PromoHalf>
           <PromoHalf>
             <ArtFrame caption="All Art by Sam Bowerman">
-              <SamGraphic filename={"dusty-couch.jpg"} />
+              <SamGraphic which={"DUSTY_COUCH"} />
             </ArtFrame>
           </PromoHalf>
         </PromoSection>
