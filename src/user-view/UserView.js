@@ -3,10 +3,8 @@ import Modal from "../Modal";
 import NavBar from "../nav-bar/NavBar";
 import BookingForm from "../modals/booking-form/BookingForm";
 import Footer from "../footer/Footer";
-import ArtFrame from "./ArtFrame";
-import CouchASCIIart from "../assets/couchASCIIart";
-import { PromoSection, PromoHalf, SamGraphic } from "./PromoComponents";
-import { BaseButton } from "../utils/reusable-components";
+import Content from "./content/Content";
+// import { BaseButton } from "../utils/reusable-components";
 import SuccessMessage from "../modals/SuccessMessage";
 import ErrorMessage from "../modals/ErrorMessage";
 import MyBookings from "../modals/my-bookings/MyBookings";
@@ -166,29 +164,8 @@ class UserView extends React.Component {
           </Modal>
         )}
 
-        <PromoSection>
-          <PromoHalf>
-            <h1>Welcome to the main page for the Dusty Couch</h1>
-            <br />
-            <BaseButton onClick={this.showBookingForm}>Book Now!</BaseButton>
-          </PromoHalf>
-          <PromoHalf>
-            <ArtFrame caption={`ASCII Couch by Joan G. Stark`}>
-              <CouchASCIIart />
-            </ArtFrame>
-          </PromoHalf>
-        </PromoSection>
+        <Content />
 
-        <PromoSection>
-          <PromoHalf>
-            <BaseButton onClick={this.showBookingForm}>Book Now!</BaseButton>
-          </PromoHalf>
-          <PromoHalf>
-            <ArtFrame caption="All Art by Sam Bowerman">
-              <SamGraphic which={"DUSTY_COUCH"} />
-            </ArtFrame>
-          </PromoHalf>
-        </PromoSection>
         <Footer />
       </div>
     );

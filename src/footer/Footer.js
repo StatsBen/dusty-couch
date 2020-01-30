@@ -4,7 +4,6 @@ import colours from "../styles/colours";
 import packageJSON from "../../package.json";
 
 const FooterContainer = styled.div`
-  position: absolute;
   bottom: 0;
   left: 0;
   width: 90%;
@@ -12,7 +11,7 @@ const FooterContainer = styled.div`
   margin-top: 100px;
   padding: 20px 5% 20px 5%;
   background: ${colours.black};
-  color: ${colours.background};
+  color: white;
   font-size: 0.9em;
 `;
 

@@ -8,11 +8,12 @@ const NavBarContainer = styled.div`
   width: 100%;
   height: auto;
   background: ${colours.headline};
-  color: ${colours.background};
+  color: white;
   top: 0;
   left: 0;
   padding: 5px 0px;
   font-size: 1.1em;
+  z-index: 5;
 `;
 
 const SiteTitle = styled.div`
@@ -27,7 +28,6 @@ const UserInfo = styled.div`
   float: right;
   font-size: 0.9em;
   font-weight: 400;
-
   user-select: none;
 `;
 
