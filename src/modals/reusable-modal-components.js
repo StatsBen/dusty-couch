@@ -3,13 +3,14 @@ import colours from "../styles/colours";
 import fonts from "../styles/fonts";
 
 export const ModalBackdrop = styled.div`
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 100%;
+  min-height: 100%;
   top: 0;
   left: 0;
   background: rgba(0, 0, 0, 0.8);
   z-index: 999;
+  overflow-y: scroll;
 `;
 
 export const ModalContainer = styled.div`
@@ -17,6 +18,7 @@ export const ModalContainer = styled.div`
   width: calc(90% - 40px);
   left: 5%;
   top: 100px;
+  margin-bottom: 100px;
   padding: 20px;
   font-family: ${fonts.primary}, sans-serif;
   color: ${colours.paragraph};
