@@ -64,9 +64,13 @@ const NavBar = props => {
       )}
 
       {user ? (
-        <UserInfo>{`Welcome back, "${user.displayName}"`}</UserInfo>
+        <UserInfo
+          className={"unnecessary"}
+        >{`Welcome back, "${user.displayName}"`}</UserInfo>
       ) : (
-        <UserInfo>{`Have a Reservation? Log In To View/Edit`}</UserInfo>
+        <UserInfo
+          className={"unnecessary"}
+        >{`Have a Reservation? Log In To View/Edit`}</UserInfo>
       )}
     </NavBarContainer>
   );
