@@ -10,4 +10,47 @@ body {
   margin: 0;
   width: 100%;
   min-height: 100%;
+  font-size: 12pt;
+}
+
+@media (min-width: 1200px) {
+  h1 {
+    font-size: 48pt;
+  }
+
+  p {
+    font-size: 15pt;
+  }
+  .unnecessary {
+    display: auto;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1200px) {
+  h1 {
+    font-size: 36pt;
+  }
+
+  p {
+    font-size: 14pt;
+  }
+  .unnecessary {
+    display: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 36pt;
+  }
+
+  p {
+    font-size: 12pt;
+  }
+  .unnecessary {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
 }
