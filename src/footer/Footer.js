@@ -4,8 +4,6 @@ import colours from "../styles/colours";
 import packageJSON from "../../package.json";
 
 const FooterContainer = styled.div`
-  bottom: 0;
-  left: 0;
   width: 90%;
   min-height: 50px;
   margin-top: 100px;
@@ -28,10 +26,16 @@ const RightSideText = styled.div`
   width: 250px;
 `;
 
+const Clearfix = styled.div`
+  float: none;
+  clear: both;
+  width: 100%;
+`;
+
 const Footer = () => {
   return (
     <FooterContainer>
-      <LeftSideText>
+      <LeftSideText className={"unnecessary"}>
         This website is totally a joke for my friends. If you{`'`}ve stumbled
         upon it by accident, it{`'`}s absolutely <i>not</i> a rental (vacation,
         long-term, or otherwise). Now please leave.
@@ -41,6 +45,7 @@ const Footer = () => {
         <br />
         Version {packageJSON.version}
       </RightSideText>
+      <Clearfix />
     </FooterContainer>
   );
 };
