@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { BaseButton } from "../../utils/reusable-components";
 import samGraphics from "../../assets/sam-graphics.js";
 import colours from "../../styles/colours";
 
@@ -52,7 +53,12 @@ const TextSection = styled.div`
   }
 `;
 
-const Content = () => {
+const BigBookNowButt = styled(BaseButton)`
+  font-size: 2em;
+`;
+
+const Content = props => {
+  const { showForm } = props;
   return (
     <ContentContainer>
       <GiantHeader>WELCOME TO:</GiantHeader>
@@ -66,6 +72,9 @@ const Content = () => {
           Ever wanted to live with your best friend for a couple nights? Come
           stay on THE DUSTY COUCH!!
         </p>
+      </TextSection>
+      <TextSection style={{ margin: "50px 0" }}>
+        <BigBookNowButt onClick={showForm}>Book Now!</BigBookNowButt>
       </TextSection>
     </ContentContainer>
   );

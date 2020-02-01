@@ -164,7 +164,7 @@ class UserView extends React.Component {
           </Modal>
         )}
 
-        <Content />
+        <Content showForm={this.showBookingForm} />
 
         <Footer />
       </div>
