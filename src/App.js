@@ -8,6 +8,9 @@ import colours from "./styles/colours";
 require("./styles/globals.css");
 // import Favicon from "react-favicon";
 
+/* Add the background colour to the document */
+document.getElementsByTagName("body")[0].style.background = colours.background;
+
 const LoadableMainView = Loadable({
   loader: () => import("./user-view/UserView.js"),
   loading() {
