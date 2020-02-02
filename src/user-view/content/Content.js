@@ -2,7 +2,14 @@ import React from "react";
 import styled from "styled-components";
 import { BaseButton } from "../../utils/reusable-components";
 import samGraphics from "../../assets/sam-graphics.js";
-import colours from "../../styles/colours";
+import {
+  BookingExtra,
+  BookingExtrasContainer,
+  Caption,
+  Clearfix,
+  ExtraImg,
+  TextSection
+} from "./ContentReusables";
 
 const ContentContainer = styled.div`
   height: calc(100% - 50px);
@@ -24,36 +31,8 @@ const BigCoochGraphic = styled.img`
   margin-bottom: -30px;
 `;
 
-const Caption = styled.div`
-  max-width: 50%;
-  float: right;
-  clear: both;
-  margin: 20px 0;
-  padding: 20px;
-  background: ${colours.secondary};
-  text-align: right;
-  font-size: 0.9em;
-`;
-
-const TextSection = styled.div`
-  position: relative;
-  width: 100%;
-  clear: both;
-	padding; 0;
-  text-align: center;
-  & > p {
-    display: inline-block;
-    max-width: 600px;
-    text-align: left;
-		margin: 0;
-		padding: 5px;
-		border: thin solid ${colours.tertiary};
-		transform: rotate(3deg);
-		border-radius: 3px;
-  }
-`;
-
 const BigBookNowButt = styled(BaseButton)`
+  margin: 50px 0;
   font-size: 2em;
 `;
 
@@ -67,12 +46,76 @@ const Content = props => {
         Actually please don&apos;t call... That&apos;s annoying <br />
         (Art by Sam Bowerman)
       </Caption>
-      <TextSection>
+      <TextSection rotation={"3deg"}>
         <p>
           Ever wanted to live with your best friend for a couple nights? Come
           stay on THE DUSTY COUCH!!
         </p>
       </TextSection>
+
+      <TextSection style={{ margin: "50px 0" }}>
+        <BigBookNowButt onClick={showForm}>Book Now!</BigBookNowButt>
+      </TextSection>
+
+      <GiantHeader>Extras:</GiantHeader>
+      <TextSection rotation={"-3deg"}>
+        <p>Reserve at checkout!</p>
+      </TextSection>
+      <BookingExtrasContainer>
+        <BookingExtra colour={"highlight"}>
+          <ExtraImg rotation={"3deg"}>
+            <img src={samGraphics.CUT_AN_ONION} alt="Cut an Onion" />
+          </ExtraImg>
+        </BookingExtra>
+
+        <BookingExtra colour={"button"}>
+          <ExtraImg rotation={"-5deg"}>
+            <img src={samGraphics.BOOT_DRYER} alt="Boot Dryer" />
+          </ExtraImg>
+        </BookingExtra>
+
+        <BookingExtra colour={"tertiary"}>
+          <ExtraImg rotation={"-2deg"}>
+            <img src={samGraphics.JESS_DRINK} alt="Mix Jess a Drink" />
+          </ExtraImg>
+        </BookingExtra>
+
+        <BookingExtra colour={"secondary"}>
+          <ExtraImg rotation={"5deg"}>
+            <img src={samGraphics.THERMOREST} alt="Squeaky Thermorest" />
+          </ExtraImg>
+        </BookingExtra>
+
+        <BookingExtra colour={"secondary"}>
+          <ExtraImg rotation={"5deg"}>
+            <img src={samGraphics.CUP_OF_BEN} alt="Cup of Ben" />
+          </ExtraImg>
+        </BookingExtra>
+
+        <BookingExtra colour={"highlight"}>
+          <ExtraImg rotation={"-4deg"}>
+            <img src={samGraphics.RANDOM_DRINK} alt="Random Drink" />
+          </ExtraImg>
+        </BookingExtra>
+
+        <BookingExtra colour={"button"}>
+          <ExtraImg rotation={"-3deg"}>
+            <img src={samGraphics.JOJO_MASSAGE} alt="Jojo Massage" />
+          </ExtraImg>
+        </BookingExtra>
+
+        <BookingExtra colour={"tertiary"}>
+          <ExtraImg rotation={"2deg"}>
+            <img
+              src={samGraphics.CHEESE_DREAM}
+              alt="Cheese Induced Fever Dream"
+            />
+          </ExtraImg>
+        </BookingExtra>
+
+        <Clearfix />
+      </BookingExtrasContainer>
+
       <TextSection style={{ margin: "50px 0" }}>
         <BigBookNowButt onClick={showForm}>Book Now!</BigBookNowButt>
       </TextSection>
