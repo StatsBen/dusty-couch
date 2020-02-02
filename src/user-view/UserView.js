@@ -83,7 +83,7 @@ class UserView extends React.Component {
     } catch (e) {
       console.error(e);
       this.hideBookingForm();
-      this.showErrorModal();
+      this.showErrorMessage();
       setTimeout(() => {
         this.hideErrorModal();
       }, 3000);
