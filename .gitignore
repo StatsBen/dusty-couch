@@ -1,6 +1,9 @@
 #Secret Keys
 /src/authentication/keys.js
 
+#Random Firebase Crap
+.firebase
+
 # Logs
 logs
 *.log
