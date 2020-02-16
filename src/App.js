@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
 import Loadable from "react-loadable";
+import CrazyPusheens from "./pusheens/pusheens";
 import styled from "styled-components";
 import fonts from "./styles/fonts";
 import colours from "./styles/colours";
@@ -39,6 +40,7 @@ class App extends React.Component {
     return (
       <GlobalStyles id="main">
         <h3>The Dusty Couch</h3>
+        <CrazyPusheens />
         <Router>
           <LoadableMainView path="/" />
           <LoadableAdminPortal path="/admin" />
