@@ -1,6 +1,6 @@
 {
   "name": "dusty-couch",
-  "version": "1.0.5",
+  "version": "1.0.3",
   "description": "A fake listings site for my couch that friends can crash on",
   "main": "index.html",
   "scripts": {
