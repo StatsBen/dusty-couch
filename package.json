@@ -2,7 +2,7 @@
   "name": "dusty-couch",
   "version": "1.0.4",
   "description": "A fake listings site for my couch that friends can crash on",
-  "main": "index.js",
+  "main": "index.html",
   "scripts": {
     "build": "parcel build src/index.html",
     "deploy": "npm version patch && git push && parcel build src/index.html && firebase deploy",
