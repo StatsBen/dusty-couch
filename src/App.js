@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Router } from "@reach/router";
-import Loadable from "react-loadable";
+import Loadable from "@loadable/component";
+import AdminView from "./admin-portal/AdminView";
 import CrazyPusheens from "./pusheens/pusheens";
 import styled from "styled-components";
 import fonts from "./styles/fonts";
@@ -12,19 +13,16 @@ require("./styles/globals.css");
 /* Add the background colour to the document */
 document.getElementsByTagName("body")[0].style.background = colours.background;
 
-const LoadableMainView = Loadable({
-  loader: () => import("./user-view/UserView.js"),
-  loading() {
-    return <p>Site is loading. Hold on, asshole... </p>;
-  }
+const LoadableMainView = Loadable(() => import("./user-view/UserView.js"), {
+  fallback: <p>Site is loading. Hold on, asshole... </p>
 });
 
-const LoadableAdminPortal = Loadable({
-  loader: () => import("./admin-portal/AdminView.js"),
-  loading() {
-    return <p>Admin&#146;ll be ready in a sec, Ben!</p>;
+const LoadableAdminPortal = Loadable(
+  () => import("./admin-portal/AdminView.js"),
+  {
+    fallback: <p>Admin&#146;ll be ready in a sec, Ben!</p>
   }
-});
+);
 
 const GlobalStyles = styled.div`
   font-family: ${fonts.primary}, sans-serif;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 
-const gigglingPusheenSrc = require("./pusheen-giggling.gif");
+const gigglingPusheenSrc = require("url:./pusheen-giggling.gif");
 const gigglingPusheenGIF = (
   <img
     src={gigglingPusheenSrc}

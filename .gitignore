@@ -1,6 +1,9 @@
 #Secret Keys
 /src/authentication/keys.js
 
+#Parcel Stuff...
+.parcel-cache
+
 #Random Firebase Crap
 .firebase
 

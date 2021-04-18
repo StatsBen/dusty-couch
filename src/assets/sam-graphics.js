@@ -1,13 +1,13 @@
-const bootDryerImg = require("./sam-graphics/boot-dryer.jpg");
-const cheeseDreamImg = require("./sam-graphics/cheese-dream.jpg");
-const cupOfBenImg = require("./sam-graphics/cup-of-ben.jpg");
-const cupOfJoyImg = require("./sam-graphics/cup-of-joy.jpg");
-const cutAnOnionImg = require("./sam-graphics/cut-an-onion.jpg");
-const dustyCouchImg = require("./sam-graphics/dusty-couch.jpg");
-const jessDrinkImg = require("./sam-graphics/jess-drink.jpg");
-const jojoMassageImg = require("./sam-graphics/jojo-massage.jpg");
-const randomDrinkImg = require("./sam-graphics/random-drink.jpg");
-const thermorestImg = require("./sam-graphics/thermorest.jpg");
+const bootDryerImg = require("url:./sam-graphics/boot-dryer.jpg");
+const cheeseDreamImg = require("url:./sam-graphics/cheese-dream.jpg");
+const cupOfBenImg = require("url:./sam-graphics/cup-of-ben.jpg");
+const cupOfJoyImg = require("url:./sam-graphics/cup-of-joy.jpg");
+const cutAnOnionImg = require("url:./sam-graphics/cut-an-onion.jpg");
+const dustyCouchImg = require("url:./sam-graphics/dusty-couch.jpg");
+const jessDrinkImg = require("url:./sam-graphics/jess-drink.jpg");
+const jojoMassageImg = require("url:./sam-graphics/jojo-massage.jpg");
+const randomDrinkImg = require("url:./sam-graphics/random-drink.jpg");
+const thermorestImg = require("url:./sam-graphics/thermorest.jpg");
 
 const samGraphics = {
   BOOT_DRYER: bootDryerImg,
